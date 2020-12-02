@@ -20,6 +20,9 @@ import './components/Markdown/Markdown'
 // ECharts
 import './components/ECharts/EChartsConfig'
 
+// 前往 public 文件夹的路径
+Vue.prototype.$PUBLIC_PATH = process.env.BASE_URL
+
 Vue.config.productionTip = false
 Vue.use(animated)
 Vue.use(jsonView)

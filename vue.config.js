@@ -1,5 +1,6 @@
 const timeStamp = new Date().getTime()
 module.exports = {
+  // 根据需求修改打包后的公共路径
   publicPath: process.env.NODE_ENV === 'production' ? '/vue-quasar-manage/' : '/',
   devServer: {
     port: 8868

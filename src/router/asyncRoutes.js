@@ -23,6 +23,7 @@ const asyncRoutesChildren = [
     meta: {
       roles: ['admin', 'editor'],
       title: '模块 - 1',
+      itemLabel: 'SOME LABEL',
       icon: 'library_music',
       isOpen: true,
       keepAlive: true

@@ -12,7 +12,7 @@
                   <q-icon color="yellow" name="trending_up"/>
                 </div>
                 <div class="text-h6 q-mt-sm q-mb-xs text-white">
-                  <countTo :startVal='9065845' :endVal='9527654' :duration='1500'/>
+                  <countTo :startVal='906584' :endVal='952765' :duration='1500'/>
                   ¥
                 </div>
               </q-card-section>
@@ -31,13 +31,13 @@
                   <q-icon color="green" name="trending_down"/>
                 </div>
                 <div class="text-h6 q-mt-sm q-mb-xs text-white">
-                  <countTo :startVal='4003269' :endVal='4399567' :duration='1500'/>
+                  <countTo :startVal='400326' :endVal='439956' :duration='1500'/>
                   ¥
                 </div>
               </q-card-section>
               <q-card-section class="col">
                 <div style="height: 100%;width: 150px">
-                  <v-chart class="" :options="expense"/>
+                  <v-chart :options="expense"/>
                 </div>
               </q-card-section>
             </q-card-section>
@@ -50,7 +50,7 @@
                   <q-icon color="yellow" name="trending_up"/>
                 </div>
                 <div class="text-h6 q-mt-sm q-mb-xs text-white">
-                  <countTo :startVal='7061984' :endVal='7562689' :duration='1500'/>
+                  <countTo :startVal='706198' :endVal='756268' :duration='1500'/>
                   ¥
                 </div>
               </q-card-section>
@@ -77,14 +77,12 @@
         <div class="col-xs-12 col-md-3">
           <q-card class="my-card cimo-shadow">
             <q-img
-              src="https://cdn.pixabay.com/photo/2015/05/12/09/33/bird-763769_1280.jpg"
+              :src="this.$PUBLIC_PATH + 'data/bird.jpg'"
             />
-
             <q-card-section>
               <div class="text-overline text-orange-9">Overline</div>
               <div class="text-h5 q-mt-sm q-mb-xs">Title</div>
             </q-card-section>
-
             <q-card-actions>
               <q-btn flat color="dark" label="Share"/>
               <q-btn flat color="primary" label="Book"/>
