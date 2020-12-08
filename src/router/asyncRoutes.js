@@ -1,6 +1,3 @@
-import index from '../views/index'
-import layout from '../components/Layout/layout'
-import home from '../views/home/home.vue'
 
 /**
  * 需要授权访问的路由
@@ -15,7 +12,7 @@ const asyncRoutesChildren = [
       icon: 'home',
       keepAlive: true
     },
-    component: home
+    component: () => import('../views/home/home.vue')
   },
   {
     path: '/menu-1',
@@ -28,7 +25,7 @@ const asyncRoutesChildren = [
       isOpen: true,
       keepAlive: true
     },
-    component: layout,
+    component: () => import('../components/Layout/layout'),
     children: [
       {
         path: 'menu-1-1',
@@ -38,7 +35,7 @@ const asyncRoutesChildren = [
           title: '模块 1 - 1',
           icon: 'filter_1'
         },
-        component: layout,
+        component: () => import('../components/Layout/layout'),
         children: [
           {
             path: 'menu-1-1-1',
@@ -86,7 +83,7 @@ const asyncRoutesChildren = [
       isOpen: true,
       keepAlive: true
     },
-    component: layout,
+    component: () => import('../components/Layout/layout'),
     children: [
       {
         path: 'menu3-1',
@@ -97,7 +94,7 @@ const asyncRoutesChildren = [
           icon: 'filter_2',
           isOpen: true
         },
-        component: layout,
+        component: () => import('../components/Layout/layout'),
         children: [
           {
             path: 'menu3-1-1',
@@ -149,7 +146,7 @@ const asyncRoutes = [
     path: '/',
     name: 'index',
     redirect: '/',
-    component: index,
+    component: () => import('../views/index'),
     meta: {
       // index 应该是所有的用户都可以访问
       roles: ['admin', 'editor', 'test']
