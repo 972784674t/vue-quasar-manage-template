@@ -14,24 +14,24 @@
     <template v-for="(item,index) in myRouter">
       <template v-if="item.meta.isHidden !== true">
         <q-item-label v-if="item.meta.itemLabel"
-                      header
-                      class="text-weight-bold text-uppercase"
-                      :key="item.meta.itemLabel">
+           header
+           class="text-weight-bold text-uppercase"
+           :key="item.meta.itemLabel">
           {{item.meta.itemLabel}}
         </q-item-label>
 
         <!-- 没有孩子 -->
         <q-item v-if="!item.children"
-                clickable
-                v-ripple
-                :key="index"
-                :exact="item.path === '/'"
-                :class="bgColor + '-' + bgColorLevel"
-                :inset-level="initLevel"
-                active-class="baseItemActive"
-                style="color: #2c3e50"
-                :to="handleLink(basePath, item.path)"
-                @click="externalLink(basePath, item.path)"
+           clickable
+           v-ripple
+           :key="index"
+           :exact="item.path === '/'"
+           :class="bgColor + '-' + bgColorLevel"
+           :inset-level="initLevel"
+           active-class="baseItemActive"
+           style="color: #2c3e50"
+           :to="handleLink(basePath, item.path)"
+           @click="externalLink(basePath, item.path)"
         >
           <q-item-section avatar>
             <q-icon :name="item.meta.icon" />
@@ -115,16 +115,16 @@ export default {
   .baseRootItemActive
     color: #1976d2 !important
 
-    /* item 被激活时的样式 */
-    .baseItemActive
-      color: #1976d2 !important
-    .baseItemActive:after
-      content: ''
-      position: absolute
-      width: 3px
-      height: 100%
-      background: #1976d2 !important
-      top: -0.5px
-      right: 0px
+  /* item 被激活时的样式 */
+  .baseItemActive
+    color: #1976d2 !important
+  .baseItemActive:after
+    content: ''
+    position: absolute
+    width: 3px
+    height: 100%
+    background: #1976d2 !important
+    top: -0.5px
+    right: 0px
 
 </style>
