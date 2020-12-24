@@ -98,7 +98,7 @@ const asyncRoutesChildren = [
         children: [
           {
             path: 'menu3-1-1',
-            name: 'getting-started',
+            name: 'getting-started-1',
             meta: {
               roles: ['admin', 'editor'],
               title: '模块 3 - 1 - 1',

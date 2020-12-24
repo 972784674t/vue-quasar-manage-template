@@ -4,62 +4,62 @@
    initLevel ： 菜单初始化缩进等级
    bgColorLevel ：菜单背景色
    basePath : 上级菜单
-   author ： ths
 -->
 <template>
-    <div>
+  <div>
 
-        <template v-for="(item,index) in myRouter">
-            <template v-if="item.meta.isHidden !== true">
-                <q-item-label v-if="item.meta.itemLabel"
-                   header
-                   class="text-weight-bold text-uppercase"
-                   :key="item.meta.itemLabel">
-                    {{item.meta.itemLabel}}
-                </q-item-label>
+    <template v-for="(item,index) in myRouter">
+      <template v-if="item.meta.isHidden !== true">
+        <q-item-label v-if="item.meta.itemLabel"
+                      header
+                      class="text-weight-bold text-uppercase"
+                      :key="item.meta.itemLabel">
+          {{item.meta.itemLabel}}
+        </q-item-label>
 
-                <!-- 没有孩子 -->
-                <q-item v-if="!item.children" exact
-                  :key="index"
-                  :class="bgColor + '-' + bgColorLevel"
-                  :inset-level="initLevel"
-                  :to="handleLink(basePath, item.path)"
-                  clickable
-                  v-ripple
-                  @click="externalLink(basePath, item.path)"
-                >
-                  <q-item-section avatar>
-                    <q-icon :name="item.meta.icon" />
-                  </q-item-section>
-                  <q-item-section>{{item.meta.title}}</q-item-section>
-                </q-item>
+        <!-- 没有孩子 -->
+        <q-item v-if="!item.children" exact
+                clickable
+                v-ripple
+                :key="index"
+                :class="bgColor + '-' + bgColorLevel"
+                :inset-level="initLevel"
+                active-class="baseItemActive"
+                :to="handleLink(basePath, item.path)"
+                @click="externalLink(basePath, item.path)"
+        >
+          <q-item-section avatar>
+            <q-icon :name="item.meta.icon" />
+          </q-item-section>
+          <q-item-section>{{item.meta.title}}</q-item-section>
+        </q-item>
 
-                <!-- 有孩子 -->
-                <q-expansion-item v-else
-                   :duration="duration"
-                   :class="bgColor + '-' + bgColorLevel"
-                   :default-opened="item.meta.isOpen"
-                   :header-inset-level="initLevel"
-                   :key="index"
-                   :icon="item.meta.icon"
-                   :label="item.meta.title"
-                   tag="div"
-                >
+        <!-- 有孩子 -->
+        <q-expansion-item v-else
+                          :duration="duration"
+                          :class="bgColor + '-' + bgColorLevel"
+                          :default-opened="item.meta.isOpen"
+                          :header-inset-level="initLevel"
+                          :key="index"
+                          :icon="item.meta.icon"
+                          :label="item.meta.title"
+                          tag="div"
+        >
 
-                    <!-- 菜单项缩进 + 0.3 ; 背景色深度 + 1 ; 如果上级菜单路径存在，则拼接上级菜单路径 -->
-                    <base-menu-item
-                      :my-router="item.children"
-                      :init-level="initLevel + 0.2"
-                      :bg-color-level="bgColorLevel+1"
-                      :bg-color="bgColor"
-                      :base-path="basePath === undefined ? item.path : basePath + '/' + item.path"
-                    />
+          <!-- 菜单项缩进 + 0.3 ; 背景色深度 + 1 ; 如果上级菜单路径存在，则拼接上级菜单路径 -->
+          <base-menu-item
+            :my-router="item.children"
+            :init-level="initLevel + 0.2"
+            :bg-color-level="bgColorLevel + 1"
+            :bg-color="bgColor"
+            :base-path="basePath === undefined ? item.path : basePath + '/' + item.path"
+          />
 
-                </q-expansion-item>
-            </template>
-        </template>
+        </q-expansion-item>
+      </template>
+    </template>
 
-    </div>
+  </div>
 </template>
 
 <script>
@@ -69,10 +69,10 @@ export default {
   methods: {
 
     /**
-     * 处理内部链接
-     * @param basePath
-     * @param itemPath
-     */
+       * 处理内部链接
+       * @param basePath
+       * @param itemPath
+       */
     handleLink (basePath, itemPath) {
       const link = basePath === undefined ? itemPath : basePath + '/' + itemPath
       if (link.indexOf('http') !== -1) {
@@ -82,11 +82,11 @@ export default {
     },
 
     /**
-     * 处理外部链接
-     * @param basePath
-     * @param itemPath
-     * @returns {boolean}
-     */
+       * 处理外部链接
+       * @param basePath
+       * @param itemPath
+       * @returns {boolean}
+       */
     externalLink (basePath, itemPath) {
       const link = basePath === undefined ? itemPath : basePath + '/' + itemPath
       const i = link.indexOf('http')
@@ -102,3 +102,15 @@ export default {
   }
 }
 </script>
+<style lang="sass">
+  .baseItemActive
+    color: #1976d2
+  .baseItemActive:after
+    content: ''
+    position: absolute
+    width: 3px
+    height: 100%
+    background: #1976d2
+    top: -0.5px
+    right: 0px
+</style>
