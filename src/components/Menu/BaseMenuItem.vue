@@ -115,16 +115,18 @@ export default {
   .baseRootItemActive
     color: #1976d2 !important
 
-  /* item 被激活时的样式 */
-  .baseItemActive
-    color: #1976d2 !important
-  .baseItemActive:after
-    content: ''
-    position: absolute
-    width: 3px
-    height: 100%
-    background: #1976d2 !important
-    top: -0.5px
-    right: 0px
+    /* item 被激活时的样式 */
+    .baseItemActive
+      color: #1976d2 !important
+      background: rgba(25, 118, 210, 0.0618)
+      transition: all .618s
+    .baseItemActive:after
+      content: ''
+      position: absolute
+      width: 3px
+      height: 100%
+      background: #1976d2 !important
+      top: -0.5px
+      right: 0px
 
 </style>
