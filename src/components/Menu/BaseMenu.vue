@@ -1,20 +1,20 @@
 <template>
   <q-scroll-area :visible="false" class="fit" :thumb-style="thumbStyleOfMenu">
-   <div>
-    <!-- 动态菜单 -->
-    <q-list>
-      <base-menu-item
-        :my-router="menuList"
-        :init-level="0"
-        :bg-color="bgColor"
-        :duration="150"
-        :bg-color-level="1"/>
-    </q-list>
+    <div>
+      <!-- 动态菜单 -->
+      <q-list>
+        <base-menu-item
+          :my-router="menuList"
+          :init-level="0"
+          :bg-color="bgColor"
+          :duration="150"
+          :bg-color-level="1"/>
+      </q-list>
 
-    <!-- 底部说明 -->
-    <bottom-link/>
+      <!-- 底部说明 -->
+      <bottom-link/>
 
-   </div>
+    </div>
   </q-scroll-area>
 </template>
 
@@ -28,7 +28,7 @@ export default {
   data () {
     return {
       menuList: this.$store.getters.getRoutes[0].children,
-      bgColor: 'bg-grey',
+      bgColor: 'bg-white',
       thumbStyleOfMenu
     }
   }
