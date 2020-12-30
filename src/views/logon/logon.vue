@@ -94,9 +94,8 @@ export default {
       if (this.username === 'admin' || this.username === 'test') {
         sessionStorage.setItem('access_token', 972784674)
         sessionStorage.setItem('user_role', this.username)
-        setTimeout(() => {
+        const lt = setTimeout(() => {
           this.$router.push('/')
-          this.loading = !this.loading
           this.$q.notify({
             icon: 'insert_emoticon',
             message: 'hi，cimo 欢迎回来',
@@ -104,7 +103,9 @@ export default {
             position: 'top',
             timeout: 1500
           })
-        }, Math.random() * 3000 + 1000)
+          clearTimeout(lt)
+          this.loading = !this.loading
+        }, Math.random() * 3000)
       } else {
         this.loading = !this.loading
         this.$q.notify({
