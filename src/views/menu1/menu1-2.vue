@@ -7,11 +7,11 @@
 <script>
 import BaseContent from '../../components/BaseContent/BaseContent'
 export default {
-  name: 'menu1-2',
+  name: 'menu-1-2',
   components: { BaseContent },
   data () {
     return {
-      msg: 'menu 1-2'
+      msg: 'menu-1-2'
     }
   }
 }

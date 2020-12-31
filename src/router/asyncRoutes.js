@@ -22,8 +22,7 @@ const asyncRoutesChildren = [
       title: '模块 - 1',
       itemLabel: 'SOME LABEL',
       icon: 'library_music',
-      isOpen: true,
-      keepAlive: true
+      isOpen: true
     },
     component: () => import('../components/Layout/layout'),
     children: [
@@ -80,8 +79,7 @@ const asyncRoutesChildren = [
       roles: ['admin', 'editor'],
       title: '模块 - 3',
       icon: 'filter_3',
-      isOpen: true,
-      keepAlive: true
+      isOpen: true
     },
     component: () => import('../components/Layout/layout'),
     children: [
@@ -98,7 +96,7 @@ const asyncRoutesChildren = [
         children: [
           {
             path: 'menu3-1-1',
-            name: 'getting-started-1',
+            name: 'menu3-1-1',
             meta: {
               roles: ['admin', 'editor'],
               title: '模块 3 - 1 - 1',
