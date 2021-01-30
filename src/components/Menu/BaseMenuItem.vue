@@ -11,23 +11,24 @@
     <template v-for="(item,index) in myRouter">
       <template v-if="item.meta.isHidden !== true">
         <q-item-label v-if="item.meta.itemLabel"
-           header
-           class="text-weight-bold text-uppercase"
-           :key="item.meta.itemLabel">
+          header
+          class="text-weight-bold text-uppercase"
+          :key="item.meta.itemLabel">
           {{item.meta.itemLabel}}
         </q-item-label>
 
         <!-- 没有孩子 -->
         <q-item v-if="!item.children"
-           clickable
-           v-ripple
-           :key="index"
-           :exact="item.path === '/'"
-           :class="baseItemClass"
-           :inset-level="initLevel"
-           active-class="baseItemActive"
-           :to="handleLink(basePath, item.path)"
-           @click="externalLink(basePath, item.path)"
+          clickable
+          v-ripple
+          :key="index"
+          :exact="item.path === '/'"
+          :class="baseItemClass"
+          :inset-level="initLevel"
+          :style="isWeChart?' line-height: normal':''"
+          active-class="baseItemActive"
+          :to="handleLink(basePath, item.path)"
+          @click="externalLink(basePath, item.path)"
         >
           <q-item-section avatar>
             <q-icon :name="item.meta.icon" />
@@ -46,9 +47,10 @@
            :key="index"
            :icon="item.meta.icon"
            :label="item.meta.title"
+           :style="isWeChart?' line-height: normal':''"
         >
 
-          <!-- 菜单项缩进 + 0.3 ; 背景色深度 + 1 ; 如果上级菜单路径存在，则拼接上级菜单路径 -->
+          <!-- 菜单项缩进 + 0.2 ; 背景色深度 + 1 ; 如果上级菜单路径存在，则拼接上级菜单路径 -->
           <base-menu-item
             :my-router="item.children"
             :init-level="initLevel + 0.2"
@@ -74,22 +76,31 @@ export default {
   },
   computed: {
     /**
-     * 处理子菜单被激活的样式，同时修改父菜单样式
-     */
+       * 处理子菜单被激活的样式，同时修改父菜单样式
+       */
     baseItemClassWithNoChildren () {
       return (path) => {
         return this.$route.fullPath.startsWith(path) ? 'baseRootItemActive base-menu-item' + this.baseItemClass : this.baseItemClass
       }
+    },
+
+    /**
+       * 如果是微信浏览器，则添加 line-height: normal 样式
+       * @returns {boolean}
+       */
+    isWeChart () {
+      return navigator.userAgent.toLowerCase().indexOf('micromessenger') !== -1
     }
+
   },
   props: ['myRouter', 'initLevel', 'bgColor', 'bgColorLevel', 'duration', 'basePath'],
   methods: {
 
     /**
-     * 处理内部链接
-     * @param basePath
-     * @param itemPath
-     */
+       * 处理内部链接
+       * @param basePath
+       * @param itemPath
+       */
     handleLink (basePath, itemPath) {
       const link = basePath === undefined ? itemPath : basePath + '/' + itemPath
       if (link.indexOf('http') !== -1) {
@@ -99,11 +110,11 @@ export default {
     },
 
     /**
-     * 处理外部链接
-     * @param basePath
-     * @param itemPath
-     * @returns {boolean}
-     */
+       * 处理外部链接
+       * @param basePath
+       * @param itemPath
+       * @returns {boolean}
+       */
     externalLink (basePath, itemPath) {
       const link = basePath === undefined ? itemPath : basePath + '/' + itemPath
       const i = link.indexOf('http')
