@@ -119,7 +119,7 @@ const asyncRoutesChildren = [
     }
   },
   {
-    path: '/tableDetail/:id',
+    path: '/tableDetail',
     name: 'tableDetail',
     meta: {
       roles: ['admin', 'editor'],
