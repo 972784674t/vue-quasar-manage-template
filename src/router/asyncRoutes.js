@@ -1,3 +1,4 @@
+import layout from '../components/Layout/layout'
 
 /**
  * 需要授权访问的路由
@@ -24,7 +25,7 @@ const asyncRoutesChildren = [
       icon: 'library_music',
       isOpen: true
     },
-    component: () => import('../components/Layout/layout'),
+    component: layout,
     children: [
       {
         path: 'menu-1-1',
@@ -34,7 +35,7 @@ const asyncRoutesChildren = [
           title: '模块 1 - 1',
           icon: 'filter_1'
         },
-        component: () => import('../components/Layout/layout'),
+        component: layout,
         children: [
           {
             path: 'menu-1-1-1',
@@ -81,7 +82,7 @@ const asyncRoutesChildren = [
       icon: 'filter_3',
       isOpen: true
     },
-    component: () => import('../components/Layout/layout'),
+    component: layout,
     children: [
       {
         path: 'menu3-1',
@@ -92,7 +93,7 @@ const asyncRoutesChildren = [
           icon: 'filter_2',
           isOpen: true
         },
-        component: () => import('../components/Layout/layout'),
+        component: layout,
         children: [
           {
             path: 'menu3-1-1',
