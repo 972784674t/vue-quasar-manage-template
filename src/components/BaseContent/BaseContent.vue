@@ -1,18 +1,18 @@
 <template>
-  <div class="main-content">
-    <q-scroll-area
-      ref="scrollArea"
-      :thumb-style="thumbStyle"
-      :visible="false"
-      style="height: 100%"
-    >
+    <div class="main-content">
+      <q-scroll-area
+        ref="scrollArea"
+        :thumb-style="thumbStyle"
+        :visible="false"
+        style="height: 100%"
+      >
       <slot/>
-    </q-scroll-area>
-  </div>
+      </q-scroll-area>
+    </div>
 </template>
 
 <script>
-import { thumbStyle } from './thumbStyle'
+import { thumbStyle } from './ThumbStyle'
 
 export default {
   name: 'BaseContent',
@@ -56,18 +56,18 @@ export default {
   },
 
   /**
-     * 当组件被 keep-alive 缓存时，切出路由会触发 deactivated 方法
-     * 此时 this.BasePath 作为 key ，将滚动位置保存的 sessionStorage 中
-     */
+   * 当组件被 keep-alive 缓存时，切出路由会触发 deactivated 方法
+   * 此时 this.BasePath 作为 key ，将滚动位置保存的 sessionStorage 中
+   */
   deactivated () {
     // console.log(`切换（from）：${this.BasePath}`)
     window.sessionStorage.setItem(this.BasePath, JSON.stringify({ listScrollTop: this.getPosition() }))
   },
 
   /**
-     * 当组件被 keep-alive 缓存时，切回路由会触发 activated 方法
-     * 此时从 sessionStorage 中获取滚动位置
-     */
+   * 当组件被 keep-alive 缓存时，切回路由会触发 activated 方法
+   * 此时从 sessionStorage 中获取滚动位置
+   */
   activated () {
     // console.log(`切换（to）：${this.$route.path}`)
     const t = window.sessionStorage.getItem(this.$route.path)
@@ -78,8 +78,8 @@ export default {
   },
 
   /**
-     * 如果组件被关闭，则清除对应的 sessionStorage
-     */
+   * 如果组件被关闭，则清除对应的 sessionStorage
+   */
   destroyed () {
     // console.log(`销毁：${this.BasePath}`)
     sessionStorage.removeItem(this.BasePath)

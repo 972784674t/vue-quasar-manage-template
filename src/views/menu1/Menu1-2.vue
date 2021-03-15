@@ -1,17 +1,17 @@
 <template>
-    <base-content>
+  <base-content>
         <h1>{{ msg }}</h1>
-    </base-content>
+  </base-content>
 </template>
 
 <script>
-import BaseContent from '../../../components/BaseContent/BaseContent'
+import BaseContent from '../../components/BaseContent/BaseContent'
 export default {
-  name: 'hello',
+  name: 'Menu-1-2',
   components: { BaseContent },
   data () {
     return {
-      msg: 'menu2-2-1'
+      msg: 'menu-1-2'
     }
   }
 }

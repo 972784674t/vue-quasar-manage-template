@@ -3,8 +3,8 @@ import router from './index'
 import LoadingBar from '../components/LoadingBar/LoadingBar'
 import store from '../store/index'
 import constantRoutes from './constantRoutes'
-import { addTagView, setTagView } from '../components/TagView/tagViewUtils'
-import { setBreadcrumbs } from '../components/Breadcrumbs/breadcrumbsUtils'
+import { addTagView, setTagView } from '../components/TagView/TagViewUtils'
+import { setBreadcrumbs } from '../components/Breadcrumbs/BreadcrumbsUtils'
 
 router.beforeEach((to, from, next) => {
   // 成功登录后处理
