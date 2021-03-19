@@ -13,7 +13,18 @@ const asyncRoutesChildren = [
       icon: 'home',
       keepAlive: true
     },
-    component: () => import('../views/home/Home.vue')
+    component: () => import('@/views/home/Home.vue')
+  },
+  {
+    path: '/async-router',
+    name: 'AsyncRouter',
+    meta: {
+      roles: ['admin', 'editor'],
+      title: '动态路由',
+      icon: 'all_inclusive',
+      keepAlive: true
+    },
+    component: () => import('@/views/router/AsyncRouter')
   },
   {
     path: '/menu-1',
@@ -46,7 +57,7 @@ const asyncRoutesChildren = [
               icon: 'flaky',
               keepAlive: true
             },
-            component: () => import('../views/menu1/Menu1')
+            component: () => import('@/views/menu1/Menu1')
           }
         ]
       },
@@ -59,7 +70,7 @@ const asyncRoutesChildren = [
           icon: 'filter_2',
           keepAlive: true
         },
-        component: () => import('../views/menu1/Menu1-2')
+        component: () => import('@/views/menu1/Menu1-2')
       }
     ]
   },
@@ -71,7 +82,7 @@ const asyncRoutesChildren = [
       title: '模块 2',
       icon: 'extension'
     },
-    component: () => import('../views/menu2/Menu-2-1')
+    component: () => import('@/views/menu2/Menu-2-1')
   },
   {
     path: '/menu-3',
@@ -104,7 +115,7 @@ const asyncRoutesChildren = [
               icon: 'filter_1',
               keepAlive: true
             },
-            component: () => import('../views/menu3/Menu3')
+            component: () => import('@/views/menu3/Menu3')
           }
         ]
       }
@@ -128,7 +139,7 @@ const asyncRoutesChildren = [
       icon: 'blur_linear',
       isHidden: true
     },
-    component: () => import('../views/home/TableDetail')
+    component: () => import('@/views/home/TableDetail')
   },
   {
     path: '*', // 此处需置于最底部
@@ -145,13 +156,11 @@ const asyncRoutes = [
     path: '/',
     name: 'index',
     redirect: '/',
-    component: () => import('../views/Index'),
-    meta: {
-      // index 路由不参与权限过滤，因此不用设置权限
-      // roles: ['admin', 'editor', 'test']
-    },
+    component: () => import('@/views/Index'),
     children: asyncRoutesChildren
   }
 ]
 
 export default asyncRoutes
+
+export { asyncRoutesChildren }

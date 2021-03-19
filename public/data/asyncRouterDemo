@@ -1,0 +1,122 @@
+[{
+	"path": "/",
+	"name": "Home",
+	"meta": {
+		"roles": [],
+		"title": "主页",
+		"icon": "home",
+		"keepAlive": true
+	},
+	"component": "views/home/Home.vue"
+}, {
+	"path": "/async-router",
+	"name": "AsyncRouter",
+	"meta": {
+		"roles": [],
+		"title": "动态路由",
+		"icon": "all_inclusive",
+		"keepAlive": true
+	},
+	"component": "views/router/AsyncRouter.vue"
+}, {
+	"path": "/menu-1",
+	"name": "menu-1",
+	"meta": {
+		"roles": [],
+		"title": "模块 - 1",
+		"itemLabel": "SOME LABEL",
+		"icon": "library_music",
+		"isOpen": true
+	},
+	"component": "Layout",
+	"children": [{
+		"path": "menu-1-1",
+		"name": "menu-1-1",
+		"meta": {
+			"roles": [],
+			"title": "模块 1 - 1",
+			"icon": "filter_1"
+		},
+		"component": "Layout",
+		"children": [{
+			"path": "menu-1-1-1",
+			"name": "Menu-1-1-1",
+			"meta": {
+				"roles": [],
+				"title": "模块 1 - 1 - 1",
+				"icon": "flaky",
+				"keepAlive": true
+			},
+			"component": "views/menu1/Menu1.vue"
+		}]
+	}, {
+		"path": "menu-1-2",
+		"name": "Menu-1-2",
+		"meta": {
+			"roles": [],
+			"title": "模块 1 - 2",
+			"icon": "filter_2",
+			"keepAlive": true
+		},
+		"component": "views/menu1/Menu1-2.vue"
+	}]
+}, {
+	"path": "/menu-2",
+	"name": "Menu-2",
+	"meta": {
+		"roles": [],
+		"title": "模块 2",
+		"icon": "extension"
+	},
+	"component": "views/menu2/Menu-2-1.vue"
+}, {
+	"path": "/menu-3",
+	"name": "menu-3",
+	"meta": {
+		"roles": [],
+		"title": "模块 - 3",
+		"icon": "filter_3",
+		"isOpen": true
+	},
+	"component": "Layout",
+	"children": [{
+		"path": "menu3-1",
+		"name": "getting-started",
+		"meta": {
+			"roles": [],
+			"title": "模块 3 - 1",
+			"icon": "filter_2",
+			"isOpen": true
+		},
+		"component": "Layout",
+		"children": [{
+			"path": "menu3-1-1",
+			"name": "Menu3-1-1",
+			"meta": {
+				"roles": [],
+				"title": "模块 3 - 1 - 1",
+				"icon": "filter_1",
+				"keepAlive": true
+			},
+			"component": "views/menu3/Menu3.vue"
+		}]
+	}]
+}, {
+	"path": "http://www.quasarchs.com/vue-components/button",
+	"name": "external-link",
+	"meta": {
+		"roles": [],
+		"title": "外部链接/更多组件",
+		"icon": "send"
+	}
+}, {
+	"path": "/tableDetail",
+	"name": "TableDetail",
+	"meta": {
+		"roles": [],
+		"title": "Treats 详情",
+		"icon": "blur_linear",
+		"isHidden": true
+	},
+	"component": "views/home/TableDetail.vue"
+}]

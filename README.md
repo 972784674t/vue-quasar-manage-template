@@ -28,6 +28,8 @@ Vue-Quasar-Manage 是一款中后台前端解决方案：
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2021/0201/141556_ae23dd14_5663937.png "666.png")
 
+![electron](https://images.gitee.com/uploads/images/2021/0201/144237_25c67b18_5663937.png "elc.png")
+
 <p align="center">
     <img src="https://images.gitee.com/uploads/images/2021/0201/143433_c700edab_5663937.png" alt="android">
 </p>
@@ -88,7 +90,9 @@ async function handleKeepAlive (to) {
 }
 ```
 经过测试两种方式都可行，不过，总觉得递归和异步套着来一点都不爽 ┗( ▔, ▔ )┛，所以我用第一种...能简单解决的问题，何必复杂化捏...
-
+- *2021/3/20*  
+  - 如果路由的 roles 没有被设置或为空，则所有用户均可访问
+  - 添加了后端动态获取路由的 DEMO，并提供了实现思路作为学习交流
 
 ### 如何运行
 请确保您的计算机已经安装了 ```Node.js``` 以及 ```git```，当前项目主要用于展示说明文档

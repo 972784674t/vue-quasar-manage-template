@@ -3,7 +3,6 @@ import constructionRouters from '../router/permissionUtils'
 import deepClone from '../utils/CloneUtils'
 import router, { resetRouter } from '../router'
 import { removeATagView, removeOneSide } from '../components/TagView/TagViewUtils'
-// import { path404 } from '../components/404/error404'
 
 const mutations = {
 
@@ -16,9 +15,14 @@ const mutations = {
     state.routes = accessRoutes
   },
 
+  // 将动态获取的路由设置到 store 中
+  SET_ROLES: (state, payload) => {
+    state.routes = payload
+  },
+
   // 退出登录
   LOGOUT: (state, payload) => {
-    state.role = 'admin'
+    state.role = ''
     state.routes = []
     state.tagView = []
     sessionStorage.removeItem('access_token')
@@ -26,10 +30,10 @@ const mutations = {
     resetRouter()
   },
 
-  // 新增tagView
+  // 新增 tagView
   ADD_TAG_VIEW: (state, payload) => {
     const size = state.tagView.length
-    // 首次进入或刷新页面时且当前路由不是根路由
+    // 首次进入或刷新页面时，当前路由不是根路由
     if (!size && payload.fullPath !== '/') {
       state.tagView.push(payload)
       return
@@ -39,7 +43,6 @@ const mutations = {
     for (let i = 0; i < size; i++) {
       t.push(state.tagView[i].fullPath)
     }
-    // 如果 t[] 中没有当前路由，则添加
     if (t.indexOf(payload.fullPath) === -1) {
       state.tagView.push(payload)
     }
@@ -91,7 +94,7 @@ const mutations = {
         state.keepAliveList.push(payload[i].name)
       }
     }
-    // 如果需要缓存首页，如下放所示，在方法最后 push 对于的路由组件名称即可
+    // 如果需要缓存首页，如下方所示，在方法最后 push 对应的路由组件名称即可
     // state.keepAliveList.push('home')
     return state.keepAliveList
   }
