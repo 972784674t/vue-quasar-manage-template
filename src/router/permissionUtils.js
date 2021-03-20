@@ -53,7 +53,7 @@ function handleComponent (component) {
 /**
  * 将 vue 路由转换为 json 字符串
  * 将 asyncRouters 的 roles 初始化为空，同时处理 Component 的懒加载：
- * component: () => import('../views/home/Home') 转换为 component: '../views/home/Home'
+ * component: () => import('../views/home/Home') 转换为 component: 'views/home/Home'
  * @param asyncRouters
  * @returns {Promise<void>} 处理后的 asyncRouters JSON 字符串
  */
@@ -73,7 +73,7 @@ export async function handleAsyncRouterToJson (asyncRouters) {
 
 /**
  * 处理 Component 的懒加载
- * component: () => import('../views/home/Home') 转换为 component: '../views/home/Home'
+ * component: () => import('../views/home/Home') 转换为 component: 'views/home/Home'
  * @param asyncRouters
  * @returns {Promise<void>}
  */
