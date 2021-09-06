@@ -3,8 +3,7 @@ html {
     box-sizing: border-box;
     color: #2c3e50;
 }
-body,
-#app{
+body, #app{
     height: 100%;
     margin: 0;
     padding: 0;
@@ -13,6 +12,11 @@ body,
     overflow: hidden;
     font-family: 'Roboto', '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
+
+aside {
+    top: 86px !important;
+}
+
 .app-main{
     width: 100%;
     position: relative;
